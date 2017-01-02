@@ -28,6 +28,15 @@ function getData(myChannel) {
         console.log(channel);
         console.log(url)
         console.log(status);
+        $(".streams").append('<tr id="' + channel + '"><td><a href="' + url + '">' + channel + "</a></td><td>" + status + "</td></tr>");
+        if (streamData.stream) {
+          $("#" + channel).css('background-color', 'YellowGreen');
+        }
+        else if (channelData.error) {
+          $("#" + channel).css('background-color', 'tomato');
+        } else {
+          $("#" + channel).css('background-color', 'gold');
+        }
       }
     })
   }
