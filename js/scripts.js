@@ -1,4 +1,4 @@
-channels = ['FreeCodeCamp', 'Comster404'];
+channels = ['freecodecamp', 'comster404', 'esl_sc2'];
 
 for (i = 0; i < channels.length; i++) {
   getData(channels[i]);
@@ -14,9 +14,10 @@ function getData(myChannel) {
   function parseChannel(channelData) {
     $.ajax({
       dataType: 'json',
-      url: 'https://wind-bow.gomix.me/twitch-api/channels/' + myChannel,
+      url: 'https://wind-bow.gomix.me/twitch-api/streams/' + myChannel,
       success: function parseStream(streamData) {
         channel = myChannel;
+        myData = streamData;
         url = 'https://www.twitch.tv/' + myChannel;
         if (streamData.stream) {
           status = streamData.stream.channel.status;
